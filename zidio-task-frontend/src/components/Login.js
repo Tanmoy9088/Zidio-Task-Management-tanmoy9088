@@ -46,7 +46,7 @@ const Login = () => {
       if (!user) return;
 
       localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("token", token);
+      // localStorage.setItem("token", token);
       localStorage.setItem("userEmail", user.email);
       localStorage.setItem("userName", user.name);
       localStorage.setItem("userRole", user.role);

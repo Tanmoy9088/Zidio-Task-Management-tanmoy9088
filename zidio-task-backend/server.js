@@ -42,7 +42,8 @@ const io = socketIo(server, {
       "http://localhost:3000", // Local React app
       "https://zidio-task-management-tanmoy9088.vercel.app",
     ], // frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   },
 });

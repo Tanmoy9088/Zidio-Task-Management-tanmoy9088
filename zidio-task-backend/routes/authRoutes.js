@@ -54,7 +54,8 @@ router.post("/register", async (req, res) => {
       .cookie("token", token, {
         httpOnly: true,
         secure: true, // true in production with HTTPS
-        sameSite: "Lax",
+        sameSite: "None", // or "None" if using cross-origin
+        // sameSite: "Lax", // or "None" if using cross-origin
         maxAge: 24 * 60 * 60 * 1000,
       })
       .status(201)
@@ -98,7 +99,7 @@ router.post("/login", async (req, res) => {
       .cookie("token", token, {
         httpOnly: true,
         secure: true, // set to true in production with HTTPS
-        sameSite: "Lax", // or "None" if using cross-origin
+        sameSite: "None", // or "None" if using cross-origin
         maxAge: 24 * 60 * 60 * 1000, // 1 day
       })
       .status(200)
@@ -137,7 +138,7 @@ router.post("/logout", (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: true, // Set to true if using HTTPS in production
-    sameSite: "Lax",
+    sameSite: "None", // or "Lax" based on your needs
   });
 
   return res.status(200).json({ message: "Logout successful" });
